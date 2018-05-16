@@ -1,0 +1,68 @@
+{
+  "author": "evan.network",
+  "name": "edge-server",
+  "description": "evan.network edge server",
+  "version": "0.9.0",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "actionhero": "^18.1.0",
+    "env-cmd": "^7.0.0",
+    "fakeredis": "latest",
+    "ioredis": "latest",
+    "ipfs": "0.27.7",
+    "web3": "1.0.0-beta.22",
+    "web3-bzz": "1.0.0-beta.22",
+    "web3-core": "1.0.0-beta.22",
+    "web3-core-helpers": "1.0.0-beta.22",
+    "web3-core-method": "1.0.0-beta.22",
+    "web3-core-promievent": "1.0.0-beta.22",
+    "web3-core-requestmanager": "1.0.0-beta.22",
+    "web3-core-subscriptions": "1.0.0-beta.22",
+    "web3-eth": "1.0.0-beta.22",
+    "web3-eth-abi": "1.0.0-beta.22",
+    "web3-eth-accounts": "1.0.0-beta.22",
+    "web3-eth-contract": "1.0.0-beta.22",
+    "web3-eth-iban": "1.0.0-beta.22",
+    "web3-eth-personal": "1.0.0-beta.22",
+    "web3-net": "1.0.0-beta.22",
+    "web3-providers-http": "1.0.0-beta.22",
+    "web3-providers-ipc": "1.0.0-beta.22",
+    "web3-providers-ws": "1.0.0-beta.22",
+    "web3-shh": "1.0.0-beta.22",
+    "web3-utils": "1.0.0-beta.22",
+    "ws": "latest",
+    "blockchain-core": "git+ssh://git@github.com:evannetwork/blockchain-core.git#v0.9.0"
+  },
+  "devDependencies": {
+    "cross-env": "latest",
+    "chai": "latest",
+    "dirty-chai": "latest",
+    "mocha": "latest",
+    "standard": "latest"
+  },
+  "scripts": {
+    "start": "env-cmd ./.env.local node --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
+    "debug": "env-cmd ./.env.local node --inspect --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
+    "debugbrk": "env-cmd ./.env.local node --inspect-brk --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
+    "installl": "env-cmd ./.env.local npm install && ./scripts/link.sh",
+    "actionhero": "env-cmd ./.env.local actionhero",
+    "pretest": "env-cmd ./.env.local standard",
+    "test": "env-cmd ./.env.local cross-env NODE_ENV=test mocha"
+  },
+  "standard": {
+    "ignore": [
+      "public/javascript/ActionheroWebsocketClient.*"
+    ],
+    "globals": [
+      "describe",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
+  }
+}
