@@ -1,8 +1,8 @@
 {
   "author": "evan.network",
-  "name": "edge-server",
+  "name": "edge-server-seed",
   "description": "evan.network edge server",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "engines": {
     "node": ">=8.0.0"
   },
