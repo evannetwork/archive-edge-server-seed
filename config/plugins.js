@@ -23,7 +23,8 @@ exports['default'] = {
     */
 
     return {
-      'smart-contracts': { path: __dirname + '/../node_modules/smart-contracts' },
+      // needs to initialize the api solc object
+      'smart-contracts': { path: __dirname + '/../node_modules/blockchain-core/node_modules/smart-contracts' },
     }
   }
 }
