@@ -46,7 +46,6 @@
     "start": "env-cmd ./.env.local node --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
     "debug": "env-cmd ./.env.local node --inspect --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
     "debugbrk": "env-cmd ./.env.local node --inspect-brk --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
-    "installl": "env-cmd ./.env.local npm install && ./scripts/link.sh",
     "actionhero": "env-cmd ./.env.local actionhero",
     "pretest": "env-cmd ./.env.local standard",
     "test": "env-cmd ./.env.local cross-env NODE_ENV=test mocha"
