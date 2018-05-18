@@ -2,7 +2,7 @@
 
 ## Next Version
 
-## Version 0.9.1
+## Version 1.0.0
 - isolated all sensitive internal configuration data into the old edge-server repo
 - extracted the nonsensitive parts into this public edge-server-seed repo
 - required pushing smart-agent specific account and key configuration into the smart-agents
