@@ -2,7 +2,7 @@
   ipfs: (api) => {
     return {
       node: {
-        repo: 'ipfs-contractus',
+        repo: 'ipfs-evannetwork',
         start: true,
         config: {
           "Addresses": {

@@ -73,14 +73,14 @@ class SmartAgent {
     try {
       let processingQueue = Promise.resolve()
       // get block from last uptime
-      const lastBlock = (await api.redis.clients.client.get(`contractus:${this.config.name}:lastBlockOnboarding`)) || (await api.eth.web3.eth.getBlockNumber())
+      const lastBlock = (await api.redis.clients.client.get(`evannetwork:${this.config.name}:lastBlockOnboarding`)) || (await api.eth.web3.eth.getBlockNumber())
       await api.bcc.eventHub.subscribe(
         'EventHub',
         null,
         'MailEvent',
         async (event) => {
           // store block as uptime
-          await api.redis.clients.client.set(`contractus:${this.config.name}:lastBlockOnboarding`, event.blockNumber)
+          await api.redis.clients.client.set(`evannetwork:${this.config.name}:lastBlockOnboarding`, event.blockNumber)
           const {sender, recipient} = event.returnValues
           const mailboxDomain = api.bcc.nameResolver.getDomainName(api.config.eth.nameResolver.domains.mailbox)
           const mailboxAddress = await api.bcc.nameResolver.getAddress(mailboxDomain)

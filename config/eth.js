@@ -34,7 +34,7 @@ exports['default'] = {
         ensResolver: process.env.ENS_RESOLVER || '0xDC18774FA2E472D26aB91deCC4CDd20D9E82047e',
         labels: {
           businessCenterRoot: process.env.BC_ROOT || 'testbc.evan',
-          contractusRoot: process.env.ENS_ROOT || 'evan',
+          evanRoot: process.env.ENS_ROOT || 'evan',
           factory: 'factory',
           admin: 'admin',
           eventhub: 'eventhub',
@@ -42,14 +42,14 @@ exports['default'] = {
           mailbox: 'mailbox'
         },
         domains: {
-          root: ['contractusRoot'],
+          root: ['evanRoot'],
           factory: ['factory', 'businessCenterRoot'],
-          adminFactory: ['admin', 'factory', 'contractusRoot'],
+          adminFactory: ['admin', 'factory', 'evanRoot'],
           businessCenter: ['businessCenterRoot'],
-          eventhub: process.env.ENS_EVENTS || ['eventhub', 'contractusRoot'],
-          profile: process.env.ENS_PROFILES || ['profile', 'contractusRoot'],
-          profileFactory: ['profile', 'factory', 'contractusRoot'],
-          mailbox: process.env.ENS_MAILBOX || ['mailbox', 'contractusRoot'],
+          eventhub: process.env.ENS_EVENTS || ['eventhub', 'evanRoot'],
+          profile: process.env.ENS_PROFILES || ['profile', 'evanRoot'],
+          profileFactory: ['profile', 'factory', 'evanRoot'],
+          mailbox: process.env.ENS_MAILBOX || ['mailbox', 'evanRoot'],
         },
       }
     }
