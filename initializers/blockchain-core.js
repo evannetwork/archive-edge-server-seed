@@ -1,6 +1,6 @@
 'use strict'
 const {Initializer, api} = require('actionhero')
-const sharedLib = require('blockchain-core')
+const sharedLib = require('@evan.network/blockchain-core')
 
 
 module.exports = class BlockchainCore extends Initializer {
@@ -71,7 +71,7 @@ module.exports = class BlockchainCore extends Initializer {
       originator: '',
     });
 
-    const definition = new sharedLib.Definition({
+    const definition = new sharedLib.Description({
       contractLoader,
       cryptoProvider,
       dfs: ipfs,
