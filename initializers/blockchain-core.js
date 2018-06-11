@@ -62,7 +62,7 @@ module.exports = class BlockchainCore extends Initializer {
     cryptoConfig['unencrypted'] = new sharedLib.Unencrypted();
     cryptoConfig['aesEcb'] = new sharedLib.AesEcb();
     const cryptoProvider = new sharedLib.CryptoProvider(cryptoConfig);
-    const keyProvider = new sharedLib.KeyProvider(api.config.encryptionKeys);
+    const keyProvider = new sharedLib.KeyProvider({keys: api.config.encryptionKeys});
     const ipld = new sharedLib.Ipld({
       ipfs,
       keyProvider,

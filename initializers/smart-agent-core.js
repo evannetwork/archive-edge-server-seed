@@ -8,7 +8,7 @@ class SmartAgent {
     this.config = config
   }
   async initialize() {
-    this.keyProvider = new KeyProvider(api.config.encryptionKeys)
+    this.keyProvider = new KeyProvider({keys: api.config.encryptionKeys})
     this.keyProvider.log = api.log
     if (!this.config.disableKeyExchange) {
       this.ipld = new Ipld({
