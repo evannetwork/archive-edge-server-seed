@@ -9,6 +9,10 @@ exports['default'] = {
     which will be merged into one object
   */
   ethAccounts: process.env.ETH_ACCOUNTS ? JSON.parse(process.env.ETH_ACCOUNTS) : {},
+  encryptionKeys: {
+    '0xd9264cfd4eb749babe7dcaace96b5bfb99d9d775858a039f0f340f412a925092':
+      '346c22768f84f3050f5c94cec98349b3c5cbfa0b7315304e13647a4918ffff22'
+  },
   
   eth: (api) => {
     return {
