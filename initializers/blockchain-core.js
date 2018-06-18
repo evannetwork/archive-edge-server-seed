@@ -102,7 +102,7 @@ module.exports = class BlockchainCore extends Initializer {
       definition,
     });
 
-    const rightsAndRoles = new RightsAndRoles({
+    const rightsAndRoles = new sharedLib.RightsAndRoles({
       contractLoader,
       executor ,
       nameResolver,
