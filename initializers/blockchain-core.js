@@ -102,19 +102,27 @@ module.exports = class BlockchainCore extends Initializer {
       definition,
     });
 
+    const rightsAndRoles = new RightsAndRoles({
+      contractLoader,
+      executor ,
+      nameResolver,
+      web3: api.eth.web3,
+    });
+
     api['bcc'] = {
       accountStore,
       contractLoader,
       cryptoProvider,
+      dataContract,
       defaultCryptoAlgo,
       eventHub,
       executor,
-      ipld,
       ipfs,
+      ipld,
       keyProvider,
       nameResolver,
-      dataContract,
-      signer
+      rightsAndRoles,
+      signer,
     }
   }
 
