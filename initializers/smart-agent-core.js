@@ -19,15 +19,29 @@ class SmartAgent {
         defaultCryptoAlgo: api.bcc.defaultCryptoAlgo,
         originator: api.eth.web3.utils.soliditySha3(this.config.ethAccount),
       })
+
+      // 'own' key provider, that won't be linked to profile and used in 'own' ipld
+      // this prevents key lookup infinite loops
+      const keyProviderOwn = new KeyProvider(api.config.encryptionKeys)
+      keyProviderOwn.log = api.log
+      const ipldOwn = new Ipld({
+        log: api.log,
+        ipfs: api.bcc.ipfs,
+        keyProvider: keyProviderOwn,
+        cryptoProvider: api.bcc.cryptoProvider,
+        defaultCryptoAlgo: api.bcc.defaultCryptoAlgo,
+        originator: api.eth.web3.utils.soliditySha3(this.config.ethAccount),
+      })
       this.profileOwn = new Profile({
-        ipld: this.ipld,
+        ipld: ipldOwn,
         nameResolver: api.bcc.nameResolver,
         defaultCryptoAlgo: 'aes',
         executor: api.bcc.executor,
         contractLoader: api.bcc.contractLoader,
         accountId: this.config.ethAccount,
-        dataContract: api.bcc.dataContract
-      });    
+        dataContract: api.bcc.dataContract,
+      })
+  
       if(!await this.profileOwn.exists()) {
         const keyExchangeOptions = {
           log: api.log,
