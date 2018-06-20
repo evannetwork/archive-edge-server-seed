@@ -22,7 +22,7 @@ class SmartAgent {
 
       // 'own' key provider, that won't be linked to profile and used in 'own' ipld
       // this prevents key lookup infinite loops
-      const keyProviderOwn = new KeyProvider(api.config.encryptionKeys)
+      const keyProviderOwn = new KeyProvider({keys: api.config.encryptionKeys})
       keyProviderOwn.log = api.log
       const ipldOwn = new Ipld({
         log: api.log,
