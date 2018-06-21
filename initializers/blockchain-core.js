@@ -115,6 +115,7 @@ module.exports = class BlockchainCore extends Initializer {
       cryptoProvider,
       dataContract,
       defaultCryptoAlgo,
+      definition,
       eventHub,
       executor,
       ipfs,
@@ -122,6 +123,7 @@ module.exports = class BlockchainCore extends Initializer {
       keyProvider,
       nameResolver,
       rightsAndRoles,
+      sharing,
       signer,
     }
   }
