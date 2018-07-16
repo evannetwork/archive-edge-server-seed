@@ -1,6 +1,9 @@
 'use strict'
 const {Initializer, api} = require('actionhero')
 const Web3 = require('web3')
+const EventEmitter = require('events');
+
+
 
 module.exports = class Eth extends Initializer {
   constructor () {
@@ -13,12 +16,11 @@ module.exports = class Eth extends Initializer {
 
     this.reconnecting = false
     this.web3 = new Web3()
+    this.blockEmitter = new EventEmitter();
   }
 
   async initialize () {
     // connect to web3
-
-
     Web3.providers.WebsocketProvider.prototype.send = (payload, callback) => {
       let _this = this;
 
@@ -58,7 +60,8 @@ module.exports = class Eth extends Initializer {
     }
 
     api['eth'] = {
-      web3 : this.web3
+      web3 : this.web3,
+      blockEmitter: this.blockEmitter
     }
   }
 
@@ -115,7 +118,24 @@ module.exports = class Eth extends Initializer {
     }
   }
 
+  async start () {
 
-  async start () {}
+    // register block emitter listener
+    this.web3.eth.subscribe('newBlockHeaders')
+    .on('data', (blockHeader) => {
+      this.web3.eth.getBlock(blockHeader.number)
+      .then(async (block) => {
+        if(block.transactions.length > 0) {
+          const blockTransactions = [];
+          for(let transaction of block.transactions) {
+            blockTransactions.push(await this.web3.eth.getTransaction(transaction));
+          }
+          block.transactions = blockTransactions;
+        }
+        this.blockEmitter.emit('data', block)
+      });
+    });
+
+  }
   async stop () {}
 }
