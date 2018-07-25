@@ -43,7 +43,8 @@ exports['default'] = {
           admin: 'admin',
           eventhub: 'eventhub',
           profile: 'profile',
-          mailbox: 'mailbox'
+          mailbox: 'mailbox',
+          wallet: 'wallet',
         },
         domains: {
           root: ['evanRoot'],
