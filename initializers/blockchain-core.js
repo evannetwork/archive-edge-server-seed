@@ -1,6 +1,6 @@
 'use strict'
 const {Initializer, api} = require('actionhero')
-const sharedLib = require('@evan.network/blockchain-core')
+const sharedLib = require('@evan.network/api-blockchain-core')
 
 
 module.exports = class BlockchainCore extends Initializer {

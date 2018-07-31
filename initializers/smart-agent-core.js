@@ -1,6 +1,6 @@
 'use strict'
 const {Initializer, api} = require('actionhero')
-const { Ipld, KeyExchange, KeyProvider, Mailbox, Profile } = require('@evan.network/blockchain-core')
+const { Ipld, KeyExchange, KeyProvider, Mailbox, Profile } = require('@evan.network/api-blockchain-core')
 
 
 class SmartAgent {
