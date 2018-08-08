@@ -1,6 +1,6 @@
 {
   "author": "evan.network",
-  "name": "edge-server-seed",
+  "name": "@evan.network/edge-server-seed",
   "description": "evan.network edge server",
   "version": "0.9.1",
   "engines": {
