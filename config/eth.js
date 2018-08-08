@@ -20,11 +20,6 @@ exports['default'] = {
         // parity/geth endpoint
         url: process.env.ETH_WS_ADDRESS || 'ws://localhost:8546',
       },
-
-      solc: {
-        // should SOL files compiled on startup
-        compileContracts: false,
-      },
       signer: {
         // gas price to pay in wei
         // unset config value or set it to falsy for use median of last blocks as gas price

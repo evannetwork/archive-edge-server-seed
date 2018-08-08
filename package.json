@@ -7,8 +7,8 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "@evan.network/smart-contracts-core": "git@github.com:evannetwork/smart-contracts-core.git#develop",
     "@evan.network/api-blockchain-core": "^1.0.0",
-    "@evan.network/smart-contracts-core": "^0.9.0",
     "actionhero": "^18.1.0",
     "env-cmd": "^7.0.0",
     "fakeredis": "latest",
@@ -44,9 +44,9 @@
     "standard": "latest"
   },
   "scripts": {
-    "start": "env-cmd ./.env.local node --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
-    "debug": "env-cmd ./.env.local node --inspect --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
-    "debugbrk": "env-cmd ./.env.local node --inspect-brk --preserve-symlinks ./node_modules/actionhero/bin/actionhero",
+    "start": "env-cmd ./.env.local node --preserve-symlinks ../../actionhero/bin/actionhero",
+    "debug": "env-cmd ./.env.local node --inspect --preserve-symlinks ../../actionhero/bin/actionhero",
+    "debugbrk": "env-cmd ./.env.local node --inspect-brk --preserve-symlinks ../../actionhero/bin/actionhero",
     "actionhero": "env-cmd ./.env.local actionhero",
     "pretest": "env-cmd ./.env.local standard",
     "test": "env-cmd ./.env.local cross-env NODE_ENV=test mocha",
